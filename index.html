@@ -151,7 +151,7 @@
             display: none; 
         }
         
-        /* 【追加】: openクラスがついていたら強制的に表示 */
+        /* 【重要】: openクラスがついていたら強制的に表示 */
         .store-group.open {
             display: block !important;
         }
@@ -227,70 +227,82 @@
         <div class="store-list-section">
             <h2>ポスター配布先店舗一覧 (全27店舗)</h2>
             
-            <h3 class="prefecture-header">【北海道・東北】</h3>
-            <div class="store-group" data-area="hokkaido-tohoku">
-                <ul class="store-list">
-                    <li data-url="hokkaido-ramen-kamon">北海道/恵庭市 ラーメン華門</li>
-                    <li data-url="aomori-hirosaki-candy">青森県/弘前市 スナックCandy</li>
-                    <li data-url="aomori-takkocafe-1">青森県/三戸郡 Takkocafe(タッコカフェ)</li>
-                    <li data-url="aomori-takkocafe-2">青森県/三戸郡 Takkocafe (本校)</li>
-                    <li data-url="aomori-sakazuki-base">青森県/三戸郡 SakaZuki BASE cominato</li>
-                    <li data-url="miyagi-candy-sendai">宮城県/仙台市 スナックCANDY仙台</li>
-                    <li data-url="miyagi-scorpion-kingcrab">宮城県/柴田町 SCORPION&KINGCRAB</li>
-                </ul>
+            <div class="accordion-item">
+                <h3 class="prefecture-header">【北海道・東北】</h3>
+                <div class="store-group" data-area="hokkaido-tohoku">
+                    <ul class="store-list">
+                        <li data-url="hokkaido-ramen-kamon">北海道/恵庭市 ラーメン華門</li>
+                        <li data-url="aomori-hirosaki-candy">青森県/弘前市 スナックCandy</li>
+                        <li data-url="aomori-takkocafe-1">青森県/三戸郡 Takkocafe(タッコカフェ)</li>
+                        <li data-url="aomori-takkocafe-2">青森県/三戸郡 Takkocafe (本校)</li>
+                        <li data-url="aomori-sakazuki-base">青森県/三戸郡 SakaZuki BASE cominato</li>
+                        <li data-url="miyagi-candy-sendai">宮城県/仙台市 スナックCANDY仙台</li>
+                        <li data-url="miyagi-scorpion-kingcrab">宮城県/柴田町 SCORPION&KINGCRAB</li>
+                    </ul>
+                </div>
             </div>
             
-            <h3 class="prefecture-header">【関東】</h3>
-            <div class="store-group" data-area="kanto">
-                <ul class="store-list">
-                    <li data-url="gunma-small-school">群馬県/高崎市 Small School MIRAI</li>
-                    <li data-url="chiba-forest-garden">千葉県/東金市 The Forest Garden KIMINOMORI</li>
-                    <li data-url="tokyo-kotosui">東京都/江東区 江戸切子専門店 煌粋</li>
-                    <li data-url="tokyo-katsushika-gourmet">東京都/葛飾区 ご当地グルメセレクション葛飾店</li>
-                    <li data-url="kanagawa-yamato-unknown">神奈川県/大和市 (店舗名不明)</li>
-                </ul>
+            <div class="accordion-item">
+                <h3 class="prefecture-header">【関東】</h3>
+                <div class="store-group" data-area="kanto">
+                    <ul class="store-list">
+                        <li data-url="gunma-small-school">群馬県/高崎市 Small School MIRAI</li>
+                        <li data-url="chiba-forest-garden">千葉県/東金市 The Forest Garden KIMINOMORI</li>
+                        <li data-url="tokyo-kotosui">東京都/江東区 江戸切子専門店 煌粋</li>
+                        <li data-url="tokyo-katsushika-gourmet">東京都/葛飾区 ご当地グルメセレクション葛飾店</li>
+                        <li data-url="kanagawa-yamato-unknown">神奈川県/大和市 (店舗名不明)</li>
+                    </ul>
+                </div>
             </div>
 
-            <h3 class="prefecture-header">【北陸・中部】</h3>
-            <div class="store-group" data-area="hokuriku-chubu">
-                <ul class="store-list">
-                    <li data-url="mie-chainon-joli">三重県/伊勢市 chainon joli</li>
-                </ul>
+            <div class="accordion-item">
+                <h3 class="prefecture-header">【北陸・中部】</h3>
+                <div class="store-group" data-area="hokuriku-chubu">
+                    <ul class="store-list">
+                        <li data-url="mie-chainon-joli">三重県/伊勢市 chainon joli</li>
+                    </ul>
+                </div>
             </div>
 
-            <h3 class="prefecture-header">【関西】</h3>
-            <div class="store-group" data-area="kansai">
-                <ul class="store-list">
-                    <li data-url="kyoto-pilates-dep">京都府/京都市 ピラティススタジオ DEP 京都桂店</li>
-                    <li data-url="kyoto-haishasan">京都府/木津川市 さがなかの歯医者さん やまもと</li>
-                    <li data-url="kyoto-gyutan-en">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</li>
-                    <li data-url="nara-yamatokoriyama-unknown">奈良県/大和郡山市 (店舗名不明)</li>
-                    <li data-url="osaka-barbershop-b-bond">大阪府/大阪市 Barbershop B.bond Sakura</li>
-                    <li data-url="osaka-sakueba">大阪府/大阪市 サクエバ</li>
-                    <li data-url="osaka-higashiosaka-hidamari">大阪府/東大阪市 まちの駅 ひだまり</li>
-                    <li data-url="osaka-kuromon-culture">大阪府/大阪市 黒門カルチャーファクトリー</li>
-                    <li data-url="osaka-seitaigym-hoshizora">大阪府/大阪市 整体とパーソナルジム星空</li>
-                    <li data-url="osaka-nomidokoro-waraiya">大阪府/大阪市 呑み処わらい家</li>
-                    <li data-url="osaka-sakai-sawada">大阪府/堺市 さわだ鍼灸整骨院</li>
-                    <li data-url="hyogo-nanahuku">兵庫県/神戸市 鮮魚 なな福</li>
-                    <li data-url="hyogo-aeru-kawanishi">兵庫県/川西市 aeru(アエル)川西能勢口本店</li>
-                    <li data-url="hyogo-kakigori-huihou">兵庫県/尼崎市 かき氷屋 Hui hou</li>
-                    <li data-url="hyogo-eigo-juku">兵庫県/神戸市 やりなおし英語JUKU 神戸校</li>
-                </ul>
+            <div class="accordion-item">
+                <h3 class="prefecture-header">【関西】</h3>
+                <div class="store-group" data-area="kansai">
+                    <ul class="store-list">
+                        <li data-url="kyoto-pilates-dep">京都府/京都市 ピラティススタジオ DEP 京都桂店</li>
+                        <li data-url="kyoto-haishasan">京都府/木津川市 さがなかの歯医者さん やまもと</li>
+                        <li data-url="kyoto-gyutan-en">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</li>
+                        <li data-url="nara-yamatokoriyama-unknown">奈良県/大和郡山市 (店舗名不明)</li>
+                        <li data-url="osaka-barbershop-b-bond">大阪府/大阪市 Barbershop B.bond Sakura</li>
+                        <li data-url="osaka-sakueba">大阪府/大阪市 サクエバ</li>
+                        <li data-url="osaka-higashiosaka-hidamari">大阪府/東大阪市 まちの駅 ひだまり</li>
+                        <li data-url="osaka-kuromon-culture">大阪府/大阪市 黒門カルチャーファクトリー</li>
+                        <li data-url="osaka-seitaigym-hoshizora">大阪府/大阪市 整体とパーソナルジム星空</li>
+                        <li data-url="osaka-nomidokoro-waraiya">大阪府/大阪市 呑み処わらい家</li>
+                        <li data-url="osaka-sakai-sawada">大阪府/堺市 さわだ鍼灸整骨院</li>
+                        <li data-url="hyogo-nanahuku">兵庫県/神戸市 鮮魚 なな福</li>
+                        <li data-url="hyogo-aeru-kawanishi">兵庫県/川西市 aeru(アエル)川西能勢口本店</li>
+                        <li data-url="hyogo-kakigori-huihou">兵庫県/尼崎市 かき氷屋 Hui hou</li>
+                        <li data-url="hyogo-eigo-juku">兵庫県/神戸市 やりなおし英語JUKU 神戸校</li>
+                    </ul>
+                </div>
             </div>
             
-            <h3 class="prefecture-header">【中国・四国】</h3>
-            <div class="store-group" data-area="chugoku-shikoku">
-                <ul class="store-list">
-                    <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
-                </ul>
+            <div class="accordion-item">
+                <h3 class="prefecture-header">【中国・四国】</h3>
+                <div class="store-group" data-area="chugoku-shikoku">
+                    <ul class="store-list">
+                        <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
+                    </ul>
+                </div>
             </div>
 
-            <h3 class="prefecture-header">【九州・沖縄】</h3>
-            <div class="store-group" data-area="kyushu-okinawa">
-                <ul class="store-list">
-                    <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
-                </ul>
+            <div class="accordion-item">
+                <h3 class="prefecture-header">【九州・沖縄】</h3>
+                <div class="store-group" data-area="kyushu-okinawa">
+                    <ul class="store-list">
+                        <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
+                    </ul>
+                </div>
             </div>
             
         </div>
@@ -333,17 +345,23 @@
             const listItems = document.querySelectorAll('.store-list li');
             const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
-            // 1. アコーディオン機能のロジック (クラス切り替えに統一)
+            // 1. アコーディオン機能のロジック (HTML構造の変更に合わせてロジックを修正)
             prefectureHeaders.forEach(header => {
                 header.addEventListener('click', (e) => { 
                     e.stopPropagation(); 
                     
-                    const group = header.nextElementSibling;
+                    // 【修正点】h3の親要素 (.accordion-item) を取得
+                    const item = header.closest('.accordion-item'); 
                     
-                    if (group && group.classList.contains('store-group')) { 
-                        // openクラスの有無を切り替えて、CSSで開閉を制御する
-                        group.classList.toggle('open'); 
-                        header.classList.toggle('open'); 
+                    if (item) {
+                        // 【修正点】親要素から子要素 (.store-group) を確実に探す
+                        const group = item.querySelector('.store-group'); 
+                        
+                        if (group) {
+                            // openクラスの有無を切り替えて、CSSで開閉を制御する
+                            group.classList.toggle('open'); 
+                            header.classList.toggle('open'); 
+                        }
                     }
                 });
             });
