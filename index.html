@@ -36,16 +36,17 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        /* --- タイトル画像 --- */
+        /* --- タイトル画像 (旧ファイル名に戻す) --- */
         .header-image {
             margin-bottom: 30px; 
         }
 
         .header-image img {
-            max-width: 100%;
+            max-width: 600px; /* PCでの最大幅 */
             height: auto;
             display: block;
             margin: 0 auto; 
+            /* 以前のコードはここに max-width の指定がありました */
         }
         
         /* --- 応援メッセージのスタイル --- */
@@ -178,11 +179,9 @@
                 padding: 20px 15px; 
             }
             
-            /* スマホでのメッセージサイズ調整 */
             .support-message {
                 font-size: 1rem;
             }
-            /* スマホでの注意書きサイズ調整 */
             .small-note {
                 font-size: 0.7rem; 
             }
@@ -192,7 +191,7 @@
             }
 
             .store-list li {
-                width: 100%; /* スマホではリストを1列にします */
+                width: 100%;
             }
         }
     </style>
@@ -202,7 +201,7 @@
     <div class="container">
         
         <div class="header-image">
-            <img src="header1.jpg" alt="えんとつ町のプペル 〜約束の時計台〜 ポスター配布マップ">
+            <img src="logo2.png" alt="えんとつ町のプペル 〜約束の時計台〜 ポスター配布マップ">
         </div>
 
         <div class="map-section">
@@ -213,159 +212,3 @@
             本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。
             <br>
             お問い合わせは下記までご連絡ください。
-            <br>
-            <a href="mailto:poupellefanteam@gmail.com">**poupellefanteam@gmail.com**</a>
-            <br>
-            <span class="small-note">※株式会社CHIMNEY TOWNへのお問合せはなさらぬようお願い申し上げます。</span>
-        </p>
-
-        <div class="store-list-section">
-            <h2>ポスター配布先店舗一覧 (全27店舗)</h2>
-            
-            <h3 class="prefecture-header">【北海道・東北】</h3>
-            <div class="store-group" data-area="hokkaido-tohoku">
-                <ul class="store-list">
-                    <li data-url="hokkaido-ramen-kamon">北海道/恵庭市 ラーメン華門</li>
-                    <li data-url="aomori-hirosaki-candy">青森県/弘前市 スナックCandy</li>
-                    <li data-url="aomori-takkocafe-1">青森県/三戸郡 Takkocafe(タッコカフェ)</li>
-                    <li data-url="aomori-takkocafe-2">青森県/三戸郡 Takkocafe (本校)</li>
-                    <li data-url="aomori-sakazuki-base">青森県/三戸郡 SakaZuki BASE cominato</li>
-                    <li data-url="miyagi-candy-sendai">宮城県/仙台市 スナックCANDY仙台</li>
-                    <li data-url="miyagi-scorpion-kingcrab">宮城県/柴田町 SCORPION&KINGCRAB</li>
-                </ul>
-            </div>
-            
-            <h3 class="prefecture-header">【関東】</h3>
-            <div class="store-group" data-area="kanto">
-                <ul class="store-list">
-                    <li data-url="gunma-small-school">群馬県/高崎市 Small School MIRAI</li>
-                    <li data-url="chiba-forest-garden">千葉県/東金市 The Forest Garden KIMINOMORI</li>
-                    <li data-url="tokyo-kotosui">東京都/江東区 江戸切子専門店 煌粋</li>
-                    <li data-url="tokyo-katsushika-gourmet">東京都/葛飾区 ご当地グルメセレクション葛飾店</li>
-                    <li data-url="kanagawa-yamato-unknown">神奈川県/大和市 (店舗名不明)</li>
-                </ul>
-            </div>
-
-            <h3 class="prefecture-header">【北陸・中部】</h3>
-            <div class="store-group" data-area="hokuriku-chubu">
-                <ul class="store-list">
-                    <li data-url="mie-chainon-joli">三重県/伊勢市 chainon joli</li>
-                </ul>
-            </div>
-
-            <h3 class="prefecture-header">【関西】</h3>
-            <div class="store-group" data-area="kansai">
-                <ul class="store-list">
-                    <li data-url="kyoto-pilates-dep">京都府/京都市 ピラティススタジオ DEP 京都桂店</li>
-                    <li data-url="kyoto-haishasan">京都府/木津川市 さがなかの歯医者さん やまもと</li>
-                    <li data-url="kyoto-gyutan-en">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</li>
-                    <li data-url="nara-yamatokoriyama-unknown">奈良県/大和郡山市 (店舗名不明)</li>
-                    <li data-url="osaka-barbershop-b-bond">大阪府/大阪市 Barbershop B.bond Sakura</li>
-                    <li data-url="osaka-sakueba">大阪府/大阪市 サクエバ</li>
-                    <li data-url="osaka-higashiosaka-hidamari">大阪府/東大阪市 まちの駅 ひだまり</li>
-                    <li data-url="osaka-kuromon-culture">大阪府/大阪市 黒門カルチャーファクトリー</li>
-                    <li data-url="osaka-seitaigym-hoshizora">大阪府/大阪市 整体とパーソナルジム星空</li>
-                    <li data-url="osaka-nomidokoro-waraiya">大阪府/大阪市 呑み処わらい家</li>
-                    <li data-url="osaka-sakai-sawada">大阪府/堺市 さわだ鍼灸整骨院</li>
-                    <li data-url="hyogo-nanahuku">兵庫県/神戸市 鮮魚 なな福</li>
-                    <li data-url="hyogo-aeru-kawanishi">兵庫県/川西市 aeru(アエル)川西能勢口本店</li>
-                    <li data-url="hyogo-kakigori-huihou">兵庫県/尼崎市 かき氷屋 Hui hou</li>
-                    <li data-url="hyogo-eigo-juku">兵庫県/神戸市 やりなおし英語JUKU 神戸校</li>
-                </ul>
-            </div>
-            
-            <h3 class="prefecture-header">【中国・四国】</h3>
-            <div class="store-group" data-area="chugoku-shikoku">
-                <ul class="store-list">
-                    <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
-                </ul>
-            </div>
-
-            <h3 class="prefecture-header">【九州・沖縄】</h3>
-            <div class="store-group" data-area="kyushu-okinawa">
-                <ul class="store-list">
-                    <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
-                </ul>
-            </div>
-            
-        </div>
-    </div>
-
-    <script>
-        // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
-        const storeUrls = {
-            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ',
-            'aomori-hirosaki-candy': 'https://[URL不明]', 
-            'aomori-takkocafe-1': 'https://maps.app.goo.gl/6hBn8DNepzqRRt2M9青森県八戸市いずみ塾',
-            'aomori-takkocafe-2': 'https://maps.app.goo.gl/DPrUEueJEcJXaLMq9',
-            'aomori-sakazuki-base': 'https://maps.app.goo.gl/R7r3wQXrJq6hP1g76',
-            'miyagi-candy-sendai': 'https://maps.app.goo.gl/s2fvmveo98V2WzoS9?g_st=ipc',
-            'miyagi-scorpion-kingcrab': 'https://maps.app.goo.gl/jxf2MGAd1ixLrNV5A',
-            'gunma-small-school': 'https://maps.app.goo.gl/WQeMHZMmNHYZHioT9?g_st=ipc',
-            'chiba-forest-garden': 'https://maps.app.goo.gl/rHNrQhwJ3fagcTcc6?g_st=ipc',
-            'tokyo-kotosui': 'https://maps.app.goo.gl/KrTsKMG3YYsv8L6m8?g_st=ipc',
-            'tokyo-katsushika-gourmet': 'https://maps.app.goo.gl/GEquqdEbXcAdAkin6',
-            'kanagawa-yamato-unknown': 'https://maps.app.goo.gl/JQfsN25ZCvVhbisA6',
-            'mie-chainon-joli': 'https://maps.app.goo.gl/REVWxze1Xxt3wD589',
-            'kyoto-pilates-dep': 'https://maps.app.goo.gl/X4MbygvRBxJqoPY38',
-            'kyoto-haishasan': 'https://maps.app.goo.gl/HWdkZZyS9AQgPvHc8',
-            'kyoto-gyutan-en': 'https://maps.app.goo.gl/oqcwgURfheDTZRs37',
-            'nara-yamatokoriyama-unknown': 'https://maps.app.goo.gl/ocK1TTe4uEpfCoqo8',
-            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', ',
-            'osaka-sakueba': 'https://maps.app.goo.gl/eAYfGUoRdMDtzDa87',
-            'osaka-higashiosaka-hidamari': 'https://maps.app.goo.gl/6bsa89CiPwXhotnP8',
-            'osaka-kuromon-culture': 'https://maps.app.goo.gl/zwVi9Fq9X3Pa2KmC8',
-            'osaka-seitaigym-hoshizora': 'https://maps.app.goo.gl/Me5VQNjnieWPAa4G9?g_st=ipc',
-            'osaka-nomidokoro-waraiya': 'https://maps.app.goo.gl/ZKxe5CxArWdSN7PJ6',
-            'osaka-sakai-sawada': 'https://maps.app.goo.gl/tGwaYxPteirTmdd87',
-            'hyogo-nanahuku': 'https://maps.app.goo.gl/qV5Q1dx4akPQf4o76?g_st=ipc',
-            'hyogo-aeru-kawanishi': 'https://maps.app.goo.gl/JyBHTfZsznMNqnLc6?g_st=ipc',
-            'hyogo-kakigori-huihou': 'https://maps.app.goo.gl/WEdeeKPLMKMNk7197?g_st=ipc',
-            'hyogo-eigo-juku': 'https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc'
-        };
-
-        // DOMContentLoadedイベントで確実に要素を取得し、リスナーを設定します。
-        document.addEventListener('DOMContentLoaded', () => {
-            const listItems = document.querySelectorAll('.store-list li');
-            const prefectureHeaders = document.querySelectorAll('.prefecture-header');
-
-            // 1. アコーディオン機能のロジック
-            prefectureHeaders.forEach(header => {
-                header.addEventListener('click', (e) => {
-                    // クリックイベントが他の要素に伝播するのを防ぐ
-                    e.stopPropagation(); 
-                    
-                    const group = header.nextElementSibling;
-                    
-                    // 開閉状態をトグル (CSSのdisplayプロパティを直接操作)
-                    if (group && group.classList.contains('store-group')) {
-                        if (group.style.display === 'block') {
-                            group.style.display = 'none';
-                            header.classList.remove('open');
-                        } else {
-                            // 確実に開く
-                            group.style.display = 'block';
-                            header.classList.add('open');
-                        }
-                    }
-                });
-            });
-
-
-            // 2. リストクリックによるリンク遷移のロジック 
-            listItems.forEach(item => {
-                const urlKey = item.getAttribute('data-url');
-                const url = storeUrls[urlKey];
-
-                // URLが存在し、かつダミーの「https://[URL不明]」でない場合のみクリックイベントを設定
-                if (url && url !== 'https://[URL不明]') {
-                    item.addEventListener('click', () => {
-                        window.open(url, '_blank');
-                    });
-                }
-            });
-        });
-    </script>
-    
-</body>
-</html>
