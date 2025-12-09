@@ -140,13 +140,20 @@
         
         /* ★アコーディオンコンテンツ (リスト) のスタイル★ */
         .store-group {
-            display: none; 
             padding: 15px 0 5px;
             border-left: 1px solid #ccc;
             border-right: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
             border-radius: 0 0 4px 4px;
             background-color: #fff;
+            
+            /* 初期状態は非表示 */
+            display: none; 
+        }
+        
+        /* 【追加】: openクラスがついていたら強制的に表示 */
+        .store-group.open {
+            display: block !important;
         }
         
         .store-list {
@@ -326,23 +333,17 @@
             const listItems = document.querySelectorAll('.store-list li');
             const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
-            // 1. アコーディオン機能のロジック (クリック処理を堅牢化)
+            // 1. アコーディオン機能のロジック (クラス切り替えに統一)
             prefectureHeaders.forEach(header => {
                 header.addEventListener('click', (e) => { 
-                    e.stopPropagation(); // クリックの伝播をここで停止
+                    e.stopPropagation(); 
                     
-                    // nextElementSiblingで直後の要素を確実に取得
                     const group = header.nextElementSibling;
                     
-                    if (group && group.classList.contains('store-group')) { // 取得した要素が目的のものであるか確認
-                        // 開閉状態をトグル
-                        if (group.style.display === 'block') {
-                            group.style.display = 'none';
-                            header.classList.remove('open');
-                        } else {
-                            group.style.display = 'block';
-                            header.classList.add('open');
-                        }
+                    if (group && group.classList.contains('store-group')) { 
+                        // openクラスの有無を切り替えて、CSSで開閉を制御する
+                        group.classList.toggle('open'); 
+                        header.classList.toggle('open'); 
                     }
                 });
             });
