@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>えんとつ町のプペル ポスター配布マップ</title> 
+    <title>えんとつ町のプペル ポスター配布マップ</title>
     <style>
         /* htmlとbodyのデフォルトマージン/パディングを完全にリセット */
         html, body {
@@ -42,11 +42,10 @@
         }
 
         .header-image img {
-            max-width: 60%; /* 親要素の60%まで広がるように設定 */
+            max-width: 100%; /* 100%を維持 */
             height: auto;
             display: block;
             margin: 0 auto; 
-            /* max-width: 600px;  もしPCで最大サイズを制限したい場合はコメントを外してください */
         }
         
         /* --- 応援メッセージのスタイル --- */
@@ -181,7 +180,7 @@
             
             /* スマホでのメッセージサイズ調整 */
             .support-message {
-                font-size: 1.2rem; 
+                font-size: 1rem;
             }
             /* スマホでの注意書きサイズ調整 */
             .small-note {
@@ -190,6 +189,10 @@
             
             .prefecture-header {
                 font-size: 1.1rem;
+            }
+
+            .store-list li {
+                width: 100%; /* スマホではリストを1列にします */
             }
         }
     </style>
@@ -211,7 +214,7 @@
             <br>
             お問い合わせは下記までご連絡ください。
             <br>
-            <a href="mailto:poupellefanteam@gmail.com">poupellefanteam@gmail.com</a>
+            <a href="mailto:poupellefanteam@gmail.com">**poupellefanteam@gmail.com**</a>
             <br>
             <span class="small-note">※株式会社CHIMNEY TOWNへのお問合せはなさらぬようお願い申し上げます。</span>
         </p>
@@ -292,7 +295,7 @@
         // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
         // 🚨【重要】URLはまだダミーです。正しいURLに置き換える必要があります。
         const storeUrls = {
-            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', 
+            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ', // <--- 引用符とカンマを修正
             'aomori-hirosaki-candy': 'https://[URL不明]', 
             'aomori-takkocafe-1': 'https://maps.app.goo.gl/6hBn8DNepzqRRt2M9青森県八戸市いずみ塾',
             'aomori-takkocafe-2': 'https://maps.app.goo.gl/DPrUEueJEcJXaLMq9',
@@ -309,55 +312,10 @@
             'kyoto-haishasan': 'https://maps.app.goo.gl/HWdkZZyS9AQgPvHc8',
             'kyoto-gyutan-en': 'https://maps.app.goo.gl/oqcwgURfheDTZRs37',
             'nara-yamatokoriyama-unknown': 'https://maps.app.goo.gl/ocK1TTe4uEpfCoqo8',
-            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', 
+            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', ', // <--- 引用符とカンマを修正
             'osaka-sakueba': 'https://maps.app.goo.gl/eAYfGUoRdMDtzDa87',
             'osaka-higashiosaka-hidamari': 'https://maps.app.goo.gl/6bsa89CiPwXhotnP8',
             'osaka-kuromon-culture': 'https://maps.app.goo.gl/zwVi9Fq9X3Pa2KmC8',
             'osaka-seitaigym-hoshizora': 'https://maps.app.goo.gl/Me5VQNjnieWPAa4G9?g_st=ipc',
             'osaka-nomidokoro-waraiya': 'https://maps.app.goo.gl/ZKxe5CxArWdSN7PJ6',
-            'osaka-sakai-sawada': 'https://maps.app.goo.gl/tGwaYxPteirTmdd87',
-            'hyogo-nanahuku': 'https://maps.app.goo.gl/qV5Q1dx4akPQf4o76?g_st=ipc',
-            'hyogo-aeru-kawanishi': 'https://maps.app.goo.gl/JyBHTfZsznMNqnLc6?g_st=ipc',
-            'hyogo-kakigori-huihou': 'https://maps.app.goo.gl/WEdeeKPLMKMNk7197?g_st=ipc',
-            'hyogo-eigo-juku': 'https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc'
-        };
-
-        // 各リスト項目にクリックイベントを設定する処理 (変更なし)
-        document.addEventListener('DOMContentLoaded', () => {
-            const listItems = document.querySelectorAll('.store-list li');
-            const prefectureHeaders = document.querySelectorAll('.prefecture-header');
-
-            // 1. アコーディオン機能のロジック
-            prefectureHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const group = header.nextElementSibling;
-                    
-                    // 開閉状態をトグル
-                    if (group.style.display === 'block') {
-                        group.style.display = 'none';
-                        header.classList.remove('open');
-                    } else {
-                        group.style.display = 'block';
-                        header.classList.add('open');
-                    }
-                });
-            });
-
-
-            // 2. リストクリックによるリンク遷移のロジック 
-            listItems.forEach(item => {
-                const urlKey = item.getAttribute('data-url');
-                const url = storeUrls[urlKey];
-
-                // URLが存在し、かつダミーの「https://[URL不明]」でない場合のみクリックイベントを設定
-                if (url && url !== 'https://[URL不明]') {
-                    item.addEventListener('click', () => {
-                        window.open(url, '_blank');
-                    });
-                }
-            });
-        });
-    </script>
-    
-</body>
-</html>
+            'osaka-sakai-saw
