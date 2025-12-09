@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>えんとつ町のプペル ポスター配布マップ</title>
+    <title>えんとつ町のプペル ポスター配布マップ</title> 
     <style>
         /* htmlとbodyのデフォルトマージン/パディングを完全にリセット */
         html, body {
@@ -36,16 +36,17 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        /* --- タイトル画像 (ロゴサイズを60%に修正) --- */
+        /* --- タイトル画像 --- */
         .header-image {
             margin-bottom: 30px; 
         }
 
         .header-image img {
-            max-width: 60%; /* 親要素の60%に修正 */
+            max-width: 60%; /* 親要素の60%まで広がるように設定 */
             height: auto;
             display: block;
             margin: 0 auto; 
+            /* max-width: 600px;  もしPCで最大サイズを制限したい場合はコメントを外してください */
         }
         
         /* --- 応援メッセージのスタイル --- */
@@ -210,7 +211,7 @@
             <br>
             お問い合わせは下記までご連絡ください。
             <br>
-            <a href="mailto:poupellefanteam@gmail.com">**poupellefanteam@gmail.com**</a>
+            <a href="mailto:poupellefanteam@gmail.com">poupellefanteam@gmail.com</a>
             <br>
             <span class="small-note">※株式会社CHIMNEY TOWNへのお問合せはなさらぬようお願い申し上げます。</span>
         </p>
@@ -291,7 +292,7 @@
         // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
         // 🚨【重要】URLはまだダミーです。正しいURLに置き換える必要があります。
         const storeUrls = {
-            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ', // ⚠️ 構文エラーを修正
+            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', 
             'aomori-hirosaki-candy': 'https://[URL不明]', 
             'aomori-takkocafe-1': 'https://maps.app.goo.gl/6hBn8DNepzqRRt2M9青森県八戸市いずみ塾',
             'aomori-takkocafe-2': 'https://maps.app.goo.gl/DPrUEueJEcJXaLMq9',
@@ -308,7 +309,7 @@
             'kyoto-haishasan': 'https://maps.app.goo.gl/HWdkZZyS9AQgPvHc8',
             'kyoto-gyutan-en': 'https://maps.app.goo.gl/oqcwgURfheDTZRs37',
             'nara-yamatokoriyama-unknown': 'https://maps.app.goo.gl/ocK1TTe4uEpfCoqo8',
-            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', ', // ⚠️ 構文エラーを修正
+            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', 
             'osaka-sakueba': 'https://maps.app.goo.gl/eAYfGUoRdMDtzDa87',
             'osaka-higashiosaka-hidamari': 'https://maps.app.goo.gl/6bsa89CiPwXhotnP8',
             'osaka-kuromon-culture': 'https://maps.app.goo.gl/zwVi9Fq9X3Pa2KmC8',
