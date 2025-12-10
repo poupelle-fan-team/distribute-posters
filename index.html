@@ -135,6 +135,7 @@
         }
         
         .store-group.active {
+            /* 🚨 修正箇所: !importantを付けて強制的に表示を有効にする */
             display: block !important; 
         }
 
@@ -144,15 +145,12 @@
             display: flex;
             flex-wrap: wrap;
             gap: 15px 30px;
-            /* 🚨 変更点 1: 文字サイズを小さく (0.9rem) */
-            font-size: 0.9rem;
+            font-size: 0.9rem; /* 文字サイズ調整済み */
         }
         
         .store-list li {
-            /* 🚨 変更点 2: widthを削除し、min-widthを設定して改行を防ぐ */
-            /* width: calc(50% - 15px); <--- 削除 */
-            min-width: 250px; 
-            flex-grow: 0; 
+            min-width: 250px; /* 改行修正済み */
+            flex-grow: 0; /* 改行修正済み */
             
             line-height: 1.8;
             border-left: 3px solid #ccc;
@@ -163,11 +161,11 @@
 
         /* リンク（aタグ）のスタイルを設定 */
         .store-list li a {
-            display: block; /* li全体をクリックできるように */
+            display: block; 
             width: 100%;
             height: 100%;
-            color: inherit; /* 親要素の色を継承 */
-            text-decoration: none; /* 下線を非表示 */
+            color: inherit; 
+            text-decoration: none; 
         }
         
         .store-list li:hover {
@@ -175,7 +173,6 @@
         }
 
         @media (max-width: 600px) {
-            /* 🚨 変更点 3: モバイルではリストを縦並び(100%幅)にし、表示を改善 */
             .store-list {
                 display: block; 
             }
@@ -295,4 +292,23 @@
                     <li><a target="_blank" href="https://maps.apple/p/EwQbod3GnDwCJJ">長崎県/島原市 白山保育園</a></li>
                     <li><a target="_blank" href="https://www.instagram.com/norikomama_candy.nagasaki?igsh=MW05Z3phNTA1eHg4aA%3D%3D&utm_source=qr">長崎県/長崎市 スナックCANDY長崎思案橋店</a></li>
                     <li><a target="_blank" href="https://www.instagram.com/candynagasaki_tukimachiyokocho?igsh=MXUwYmg0aGwxaXltMA%3D%3D&utm_source=qr">長崎県/長崎市 スナックCANDY長崎つきまち横丁店</a></li>
-                    <li><a target="_blank" href="od
+                    <li><a target="_blank" href="odysisonna.com">沖縄県/恩納村 オディシス恩納リゾートホテル</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        const prefectureHeaders = document.querySelectorAll('.prefecture-header');
+        prefectureHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const group = header.nextElementSibling;
+                header.classList.toggle('open');
+                group.classList.toggle('active');
+            });
+        });
+    </script>
+    
+</body>
+</html>
