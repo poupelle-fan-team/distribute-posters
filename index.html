@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>えんとつ町のプペル ポスター配布マップ</title> 
     <style>
-        /* CSSは変更なし */
+        /* CSSは、liの中のa要素を調整 */
         html, body {
             margin: 0;
             padding: 0;
@@ -156,6 +156,15 @@
             transition: background-color 0.1s;
         }
 
+        /* リンク（aタグ）のスタイルを設定 */
+        .store-list li a {
+            display: block; /* li全体をクリックできるように */
+            width: 100%;
+            height: 100%;
+            color: inherit; /* 親要素の色を継承 */
+            text-decoration: none; /* 下線を非表示 */
+        }
+        
         .store-list li:hover {
             background-color: #f0f0f0; 
         }
@@ -208,50 +217,50 @@
             
             <h3 class="prefecture-header">【北海道・東北】</h3><div class="store-group" data-area="hokkaido-tohoku">
                 <ul class="store-list">
-                    <li data-key="hokkaido-ramen-kamon">北海道/恵庭市 ラーメン華門</li>
-                    <li data-key="aomori-hirosaki-candy">青森県/弘前市 スナックCandy</li>
-                    <li data-key="aomori-takkocafe-1">青森県/三戸郡 Takkocafe(タッコカフェ)</li>
-                    <li data-key="aomori-takkocafe-2">青森県/三戸郡 Takkocafe (本校)</li>
-                    <li data-key="aomori-sakazuki-base">青森県/三戸郡 SakaZuki BASE cominato</li>
-                    <li data-key="miyagi-candy-sendai">宮城県/仙台市 スナックCANDY仙台</li>
-                    <li data-key="miyagi-scorpion-kingcrab">宮城県/柴田町 SCORPION&KINGCRAB</li>
-                    <li data-key="miyagi-tohoku-unknown">宮城県/白石市 (店舗名不明)</li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ">北海道/恵庭市 ラーメン華門</a></li>
+                    <li><a target="_blank" href="https://[URL不明]">青森県/弘前市 スナックCandy</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/6hBn8DNepzqRRt2M9青森県八戸市いずみ塾">青森県/三戸郡 Takkocafe(タッコカフェ)</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/DPrUEueJEcJXaLMq9">青森県/三戸郡 Takkocafe (本校)</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/R7r3wQXrJq6hP1g76">青森県/三戸郡 SakaZuki BASE cominato</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/s2fvmveo98V2WzoS9?g_st=ipc">宮城県/仙台市 スナックCANDY仙台</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/jxf2MGAd1ixLrNV5A">宮城県/柴田町 SCORPION&KINGCRAB</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/R7r3wQXrJq6hP1g761">宮城県/白石市 (店舗名不明)</a></li>
                 </ul>
             </div>
             
             <h3 class="prefecture-header">【関東】</h3><div class="store-group" data-area="kanto">
                 <ul class="store-list">
-                    <li data-key="gunma-small-school">群馬県/高崎市 Small School MIRAI</li>
-                    <li data-key="chiba-forest-garden">千葉県/東金市 The Forest Garden KIMINOMORI</li>
-                    <li data-key="tokyo-kotosui">東京都/江東区 江戸切子専門店 煌粋</li>
-                    <li data-key="tokyo-katsushika-gourmet">東京都/葛飾区 ご当地グルメセレクション葛飾店</li>
-                    <li data-key="kanagawa-yamato-unknown">神奈川県/大和市 (店舗名不明)</li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/WQeMHZMmNHYZHioT9?g_st=ipc">群馬県/高崎市 Small School MIRAI</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/rHNrQhwJ3fagcTcc6?g_st=ipc">千葉県/東金市 The Forest Garden KIMINOMORI</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/KrTsKMG3YYsv8L6m8?g_st=ipc">東京都/江東区 江戸切子専門店 煌粋</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/GEquqdEbXcAdAkin6">東京都/葛飾区 ご当地グルメセレクション葛飾店</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/JQfsN25ZCvVhbisA6">神奈川県/大和市 (店舗名不明)</a></li>
                 </ul>
             </div>
 
             <h3 class="prefecture-header">【北陸・中部】</h3><div class="store-group" data-area="hokuriku-chubu">
                 <ul class="store-list">
-                    <li data-key="mie-chainon-joli">三重県/伊勢市 chainon joli</li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/REVWxze1Xxt3wD589">三重県/伊勢市 chainon joli</a></li>
                 </ul>
             </div>
 
             <h3 class="prefecture-header">【関西】</h3><div class="store-group" data-area="kansai">
                 <ul class="store-list">
-                    <li data-key="kyoto-pilates-dep">京都府/京都市 ピラティススタジオ DEP 京都桂店</li>
-                    <li data-key="kyoto-haishasan">京都府/木津川市 さがなかの歯医者さん やまもと</li>
-                    <li data-key="kyoto-gyutan-en">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</li>
-                    <li data-key="nara-yamatokoriyama-unknown">奈良県/大和郡山市 (店舗名不明)</li>
-                    <li data-key="osaka-barbershop-b-bond">大阪府/大阪市 Barbershop B.bond Sakura</li>
-                    <li data-key="osaka-sakueba">大阪府/大阪市 サクエバ</li>
-                    <li data-key="osaka-higashiosaka-hidamari">大阪府/東大阪市 まちの駅 ひだまり</li>
-                    <li data-key="osaka-kuromon-culture">大阪府/大阪市 黒門カルチャーファクトリー</li>
-                    <li data-key="osaka-seitaigym-hoshizora">大阪府/大阪市 整体とパーソナルジム星空</li>
-                    <li data-key="osaka-nomidokoro-waraiya">大阪府/大阪市 呑み処わらい家</li>
-                    <li data-key="osaka-sakai-sawada">大阪府/堺市 さわだ鍼灸整骨院</li>
-                    <li data-key="hyogo-nanahuku">兵庫県/神戸市 鮮魚 なな福</li>
-                    <li data-key="hyogo-aeru-kawanishi">兵庫県/川西市 aeru(アエル)川西能勢口本店</li>
-                    <li data-key="hyogo-kakigori-huihou">兵庫県/尼崎市 かき氷屋 Hui hou</li>
-                    <li data-key="hyogo-eigo-juku">兵庫県/神戸市 やりなおし英語JUKU 神戸校</li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/X4MbygvRBxJqoPY38">京都府/京都市 ピラティススタジオ DEP 京都桂店</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/HWdkZZyS9AQgPvHc8">京都府/木津川市 さがなかの歯医者さん やまもと</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/oqcwgURfheDTZRs37">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/ocK1TTe4uEpfCoqo8">奈良県/大和郡山市 (店舗名不明)</a></li>
+                    <li><a target="_blank" href="maps.app.goo.gl/rPB1UEEMXsZWUKEA8', ">大阪府/大阪市 Barbershop B.bond Sakura</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/eAYfGUoRdMDtzDa87">大阪府/大阪市 サクエバ</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/6bsa89CiPwXhotnP8">大阪府/東大阪市 まちの駅 ひだまり</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/zwVi9Fq9X3Pa2KmC8">大阪府/大阪市 黒門カルチャーファクトリー</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/Me5VQNjnieWPAa4G9?g_st=ipc">大阪府/大阪市 整体とパーソナルジム星空</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/ZKxe5CxArWdSN7PJ6">大阪府/大阪市 呑み処わらい家</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/tGwaYxPteirTmdd87">大阪府/堺市 さわだ鍼灸整骨院</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/qV5Q1dx4akPQf4o76?g_st=ipc">兵庫県/神戸市 鮮魚 なな福</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/JyBHTfZsznMNqnLc6?g_st=ipc">兵庫県/川西市 aeru(アエル)川西能勢口本店</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/WEdeeKPLMKMNk7197?g_st=ipc">兵庫県/尼崎市 かき氷屋 Hui hou</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc">兵庫県/神戸市 やりなおし英語JUKU 神戸校</a></li>
                 </ul>
             </div>
             
@@ -277,67 +286,6 @@
                 const group = header.nextElementSibling;
                 header.classList.toggle('open');
                 group.classList.toggle('active');
-            });
-        });
-    </script>
-
-
-    <script>
-        // データをクリーンアップして再定義
-        const storeUrls = {
-            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ', 
-            'aomori-hirosaki-candy': 'https://[URL不明]', 
-            'aomori-takkocafe-1': 'https://maps.app.goo.gl/6hBn8DNepzqRRt2M9青森県八戸市いずみ塾',
-            'aomori-takkocafe-2': 'https://maps.app.goo.gl/DPrUEueJEcJXaLMq9',
-            'aomori-sakazuki-base': 'https://maps.app.goo.gl/R7r3wQXrJq6hP1g76',
-            'miyagi-candy-sendai': 'https://maps.app.goo.gl/s2fvmveo98V2WzoS9?g_st=ipc',
-            'miyagi-scorpion-kingcrab': 'https://maps.app.goo.gl/jxf2MGAd1ixLrNV5A',
-            'miyagi-tohoku-unknown': 'https://maps.app.goo.gl/R7r3wQXrJq6hP1g761',
-            'gunma-small-school': 'https://maps.app.goo.gl/WQeMHZMmNHYZHioT9?g_st=ipc',
-            'chiba-forest-garden': 'https://maps.app.goo.gl/rHNrQhwJ3fagcTcc6?g_st=ipc',
-            'tokyo-kotosui': 'https://maps.app.goo.gl/KrTsKMG3YYsv8L6m8?g_st=ipc',
-            'tokyo-katsushika-gourmet': 'https://maps.app.goo.gl/GEquqdEbXcAdAkin6',
-            'kanagawa-yamato-unknown': 'https://maps.app.goo.gl/JQfsN25ZCvVhbisA6',
-            'mie-chainon-joli': 'https://maps.app.goo.gl/REVWxze1Xxt3wD589',
-            'kyoto-pilates-dep': 'https://maps.app.goo.gl/X4MbygvRBxJqoPY38',
-            'kyoto-haishasan': 'https://maps.app.goo.gl/HWdkZZyS9AQgPvHc8',
-            'kyoto-gyutan-en': 'https://maps.app.goo.gl/oqcwgURfheDTZRs37',
-            'nara-yamatokoriyama-unknown': 'https://maps.app.goo.gl/ocK1TTe4uEpfCoqo8',
-            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', ', 
-            'osaka-sakueba': 'https://maps.app.goo.gl/eAYfGUoRdMDtzDa87',
-            'osaka-higashiosaka-hidamari': 'https://maps.app.goo.gl/6bsa89CiPwXhotnP8',
-            'osaka-kuromon-culture': 'https://maps.app.goo.gl/zwVi9Fq9X3Pa2KmC8',
-            'osaka-seitaigym-hoshizora': 'https://maps.app.goo.gl/Me5VQNjnieWPAa4G9?g_st=ipc',
-            'osaka-nomidokoro-waraiya': 'https://maps.app.goo.gl/ZKxe5CxArWdSN7PJ6',
-            'osaka-sakai-sawada': 'https://maps.app.goo.gl/tGwaYxPteirTmdd87',
-            'hyogo-nanahuku': 'https://maps.app.goo.gl/qV5Q1dx4akPQf4o76?g_st=ipc',
-            'hyogo-aeru-kawanishi': 'https://maps.app.goo.gl/JyBHTfZsznMNqnLc6?g_st=ipc',
-            'hyogo-kakigori-huihou': 'https://maps.app.goo.gl/WEdeeKPLMKMNk7197?g_st=ipc',
-            'hyogo-eigo-juku': 'https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc' 
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // data-url ではなく data-key を探すように変更
-            const listItems = document.querySelectorAll('.store-list li[data-key]'); 
-
-            listItems.forEach(item => {
-                const urlKey = item.getAttribute('data-key'); // data-key を取得
-                const url = storeUrls[urlKey];
-
-                if (url && url !== 'https://[URL不明]') {
-                    item.addEventListener('click', (event) => {
-                        // ポップアップブロック対策：<a>要素を一時的に作成してクリックをシミュレート
-                        
-                        const link = document.createElement('a');
-                        link.href = url;
-                        link.target = '_blank';
-                        
-                        // 画面に表示せず、強制的にクリックを発火させる
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link); 
-                    });
-                }
             });
         });
     </script>
