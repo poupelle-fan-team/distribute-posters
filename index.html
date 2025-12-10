@@ -1,196 +1,298 @@
-<style>
-    /* CSSは変更なし */
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-    }
-    
-    html {
-        background: linear-gradient(to right, #FFD700, #FFFFFF); 
-    }
-    
-    body {
-        font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-        min-height: 100vh;
-        color: #333;
-        text-align: center;
-    }
-
-    .container {
-        max-width: 960px;
-        margin: 0 auto;
-        background-color: transparent; 
-        padding: 40px 30px; 
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-    }
-
-    .header-image {
-        margin-bottom: 20px; 
-    }
-
-    .header-image img {
-        max-width: 90%; 
-        height: auto;
-        display: block;
-        margin: 0 auto; 
-    }
-    
-    .support-message {
-        font-size: 1rem; 
-        color: #555; 
-        margin-top: -20px; 
-        margin-bottom: 20px;
-        line-height: 1.6;
-        text-align: center;
-    }
-    
-    .support-message a {
-        color: #004c99;
-        font-weight: bold;
-        text-decoration: none;
-    }
-    
-    .small-note {
-        font-size: 0.8rem; 
-        display: block; 
-        margin-top: 5px; 
-    }
-
-    .map-section {
-        position: relative;
-        max-width: 100%; 
-        display: inline-block;
-        margin-bottom: 40px; 
-        border: 1px solid #ddd;
-        padding: 10px;
-        background-color: #f9f9f9;
-    }
-
-    .map-section img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .store-list-section {
-        text-align: left;
-        margin-top: 20px;
-    }
-
-    .store-list-section > h2 {
-        font-size: 1.5rem;
-        color: #555;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 5px;
-        margin-bottom: 20px;
-    }
-    
-    .prefecture-header {
-        font-size: 1.2rem;
-        color: #004c99;
-        background-color: #e6f0ff; 
-        padding: 10px 15px;
-        margin-top: 15px;
-        margin-bottom: 0;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background-color 0.2s;
-        user-select: none; 
-    }
-    
-    .prefecture-header:hover {
-        background-color: #d0e4ff;
-    }
-    
-    .prefecture-header::after {
-        content: '▼'; 
-        font-size: 0.8em;
-        transition: transform 0.2s;
-    }
-    
-    .prefecture-header.open::after {
-        content: '▲';
-    }
-    
-    .store-group {
-        display: none; 
-        padding: 15px 0 5px;
-        border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        border-radius: 0 0 4px 4px;
-        background-color: #fff;
-    }
-    
-    .store-group.active {
-        display: block !important; 
-    }
-
-    .store-list {
-        list-style: none;
-        padding: 0 15px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px 30px;
-        /* 🚨 変更点: 文字サイズを 0.9rem に設定 */
-        font-size: 0.9rem;
-    }
-    
-    .store-list li {
-        /* 以前の改行修正で追加した設定 */
-        min-width: 250px; 
-        flex-grow: 0; 
-        
-        line-height: 1.8;
-        border-left: 3px solid #ccc;
-        padding-left: 10px;
-        cursor: pointer; 
-        transition: background-color 0.1s;
-    }
-
-    /* リンク（aタグ）のスタイルを設定 */
-    .store-list li a {
-        display: block; /* li全体をクリックできるように */
-        width: 100%;
-        height: 100%;
-        color: inherit; /* 親要素の色を継承 */
-        text-decoration: none; /* 下線を非表示 */
-    }
-    
-    .store-list li:hover {
-        background-color: #f0f0f0; 
-    }
-
-    @media (max-width: 600px) {
-        /* 以前の改行修正で追加した設定 (モバイル対応) */
-        .store-list {
-            display: block; /* フレックスを解除 */
-        }
-        .store-list li {
-            width: 100%; 
-            min-width: auto; /* 最小幅の制限を解除 */
-            margin-bottom: 10px; /* 縦の余白を少し確保 */
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>えんとつ町のプペル ポスター配布マップ</title> 
+    <style>
+        /* CSSは変更なし */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
         
-        .container { 
-            padding: 20px 15px; 
+        html {
+            background: linear-gradient(to right, #FFD700, #FFFFFF); 
+        }
+        
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            min-height: 100vh;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: transparent; 
+            padding: 40px 30px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+        }
+
+        .header-image {
+            margin-bottom: 20px; 
+        }
+
+        .header-image img {
+            max-width: 90%; 
+            height: auto;
+            display: block;
+            margin: 0 auto; 
         }
         
         .support-message {
             font-size: 1rem; 
+            color: #555; 
+            margin-top: -20px; 
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
         }
+        
+        .support-message a {
+            color: #004c99;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
         .small-note {
-            font-size: 0.7rem; 
+            font-size: 0.8rem; 
+            display: block; 
+            margin-top: 5px; 
+        }
+
+        .map-section {
+            position: relative;
+            max-width: 100%; 
+            display: inline-block;
+            margin-bottom: 40px; 
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .map-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .store-list-section {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .store-list-section > h2 {
+            font-size: 1.5rem;
+            color: #555;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
         
         .prefecture-header {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            color: #004c99;
+            background-color: #e6f0ff; 
+            padding: 10px 15px;
+            margin-top: 15px;
+            margin-bottom: 0;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+            user-select: none; 
         }
-    }
-</style>
+        
+        .prefecture-header:hover {
+            background-color: #d0e4ff;
+        }
+        
+        .prefecture-header::after {
+            content: '▼'; 
+            font-size: 0.8em;
+            transition: transform 0.2s;
+        }
+        
+        .prefecture-header.open::after {
+            content: '▲';
+        }
+        
+        .store-group {
+            display: none; 
+            padding: 15px 0 5px;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0 0 4px 4px;
+            background-color: #fff;
+        }
+        
+        .store-group.active {
+            display: block !important; 
+        }
+
+        .store-list {
+            list-style: none;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 30px;
+            /* 🚨 変更点 1: 文字サイズを小さく (0.9rem) */
+            font-size: 0.9rem;
+        }
+        
+        .store-list li {
+            /* 🚨 変更点 2: widthを削除し、min-widthを設定して改行を防ぐ */
+            /* width: calc(50% - 15px); <--- 削除 */
+            min-width: 250px; 
+            flex-grow: 0; 
+            
+            line-height: 1.8;
+            border-left: 3px solid #ccc;
+            padding-left: 10px;
+            cursor: pointer; 
+            transition: background-color 0.1s;
+        }
+
+        /* リンク（aタグ）のスタイルを設定 */
+        .store-list li a {
+            display: block; /* li全体をクリックできるように */
+            width: 100%;
+            height: 100%;
+            color: inherit; /* 親要素の色を継承 */
+            text-decoration: none; /* 下線を非表示 */
+        }
+        
+        .store-list li:hover {
+            background-color: #f0f0f0; 
+        }
+
+        @media (max-width: 600px) {
+            /* 🚨 変更点 3: モバイルではリストを縦並び(100%幅)にし、表示を改善 */
+            .store-list {
+                display: block; 
+            }
+            .store-list li {
+                width: 100%; 
+                min-width: auto; 
+                margin-bottom: 10px; 
+            }
+            
+            .container { 
+                padding: 20px 15px; 
+            }
+            
+            .support-message {
+                font-size: 1rem; 
+            }
+            .small-note {
+                font-size: 0.7rem; 
+            }
+            
+            .prefecture-header {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-image">
+            <img src="header1.jpg" alt="えんとつ町のプペル 〜約束の時計台〜 ポスター配布マップ">
+        </div>
+
+        <div class="map-section">
+            <img src="Mix map2.jpg" alt="日本地図">
+        </div>
+        
+        <p class="support-message">
+            本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。
+            <br>
+            お問い合わせは下記までご連絡ください。
+            <br>
+            <a href="mailto:poupellefanteam@gmail.com">**poupellefanteam@gmail.com**</a>
+            <br>
+            <span class="small-note">
+                ※株式会社CHIMNEY TOWNへの<br>
+                お問合せはなさらぬようお願い申し上げます。</span>
+        </p>
+
+        <div class="store-list-section">
+            <h2>ポスター配布先店舗一覧<br>
+                2025.12.10時点 38店舗</h2>
+            
+            <h3 class="prefecture-header">【北海道・東北】</h3><div class="store-group" data-area="hokkaido-tohoku">
+                <ul class="store-list">
+                    <li><a target="_blank" href="https://maps.app.goo.gl/pm4tkYF1X37a1q1o6">北海道/恵庭市 ラーメン華門</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/aomori_candy?igsh=OTJ1ZjR0eHpqemph&utm_source=qr">青森県/弘前市 青森Candy</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/mekLEuzNTmXf8brw7">青森県/田子町 Takkocafe</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/8SF7WxMzeiwDkXiL8">青森県/八戸市 いずみ塾 本校</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/PeAYJaTnM3SbgJHo6">青森県/階上町 SakaZuki BASE cominato</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/sweets8989_iwate?igsh=MWpydnQ0Z2Rtbnh1ag==">岩手県/花巻市 スイーツ当ばんPAKUPAKU</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/BgmMtL4s32sAA3VJ7">宮城県/青葉区 スナックCANDY仙台</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/scorpion.and.kingcrab/?igsh=MW9kMHI2ajYyam5xcw%3D%3D">宮城県/柴田町 SCORPION&KINGCRAB</a></li>
+                </ul>
+            </div>
+            
+            <h3 class="prefecture-header">【関東】</h3><div class="store-group" data-area="kanto">
+                <ul class="store-list">
+                    <li><a target="_blank" href="https://maps.app.goo.gl/tfnZDJXeJh1RaKc78">群馬県/高崎市 Small School MIRAI</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/U29MfYgRcbc1wQ1b8">東京都/葛飾区 ご当地グルメセレクション葛飾青戸店</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/smile_edukos">神奈川県/大和市 こそだち寺子屋スマイル</a></li>
+                </ul>
+            </div>
+
+            <h3 class="prefecture-header">【北陸・中部】</h3><div class="store-group" data-area="hokuriku-chubu">
+                <ul class="store-list">
+                    <li><a target="_blank" href="https://maps.app.goo.gl/xdDhL1wGzPnVtuDt7">愛知県/天白区 D's cafe 853</a></li>
+                    <li><a target="_blank" href="www.kanedatoso.com">愛知県/豊川市 （株）金田塗装</a></li>
+                    <li><a target="_blank" href="https://www.yakushikan.com/">長野県/小諸市 菱野温泉薬師館</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/chainonjoli?igsh=cjQ0NGppZzczZzJk&utm_source=qr">三重県/伊勢市 chainonjoli</a></li>
+                </ul>
+            </div>
+
+            <h3 class="prefecture-header">【関西】</h3><div class="store-group" data-area="kansai">
+                <ul class="store-list">
+                    <li><a target="_blank" href="ucacoceramics.com">京都府/右京区 ucacoceramics</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/2r8QrzMemAfLFfcUA">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/rjds6aZwSyLHvAds5">京都府/西京区 姿勢・歪み改善専門 Pilates Studio DEP 京都桂店</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/9Xw9paymZHFcX1GPA">京都府/木津川市 さがなかの歯医者さん やまもと</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/yxsmCeATJ6dxHrsJA">奈良県/山市 あのパン屋</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/GyfoPAPFEQEZ56fR8">大阪府/堺市 さわだ鍼灸整骨院</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/vgyqsbsVb7wCTcLE9">大阪府/住吉区 Barbershop.B.bond.Sakura</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/bPcDFftUE4y9azGaA">大阪府/住之江区 呑み処わらい家</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/am1kXrhQQ6ZbaoPp7">大阪府/中央区 黒門カルチャーファクトリー</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/DJQ2WLKh68PiFJNc8">大阪府/東大阪市 つむぐcafe</a></li>
+                    <li><a target="_blank" href="https://www.evinet.biz/">兵庫県/神戸市 やりなおし英語ＪＵＫＵ</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/VEZxQgpjuTYSBdtS6">兵庫県/神戸市 なな福</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/XncaFDm9UuXFDR3M6?g_st=ipc">兵庫県/神戸市 こどもCandy</a></li>
+                </ul>
+            </div>
+            
+            <h3 class="prefecture-header">【中国・四国】</h3><div class="store-group" data-area="chugoku-shikoku">
+                <ul class="store-list">
+                    <li><a target="_blank" href="https://maps.app.goo.gl/LTev5YbqfadaeATQA">岡山県/岡山市 DELI＆SWEET TO YOU</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/maq3K6acZTAqFt1GA?g_st=ac">山口県/防府市 Candy山口防府店</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/Yv5cSFSV5GJKubzN6">愛媛県/西条市 車の美容院『車楽』</a></li>
+                    <li><a target="_blank" href="https://comichaya.shopinfo.jp">徳島県/つるぎ町 発酵一宇&古見茶屋</a></li>
+                </ul>
+            </div>
+
+            <h3 class="prefecture-header">【九州・沖縄】</h3><div class="store-group" data-area="kyushu-okinawa">
+                <ul class="store-list">
+                    <li><a target="_blank" href="https://maps.app.goo.gl/Vs4iZBJzYDPacsk29?g_st=ipc">宮崎県/宮崎市 スナックCANDY宮崎</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/PBMGb8jfjFSPckK49">宮崎県/都城市 琴吹寿司</a></li>
+                    <li><a target="_blank" href="https://maps.app.goo.gl/t3U1yTYFpvEpWpKw7">宮崎県/日南市 カラオケQ 3日南店</a></li>
+                    <li><a target="_blank" href="https://maps.apple/p/EwQbod3GnDwCJJ">長崎県/島原市 白山保育園</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/norikomama_candy.nagasaki?igsh=MW05Z3phNTA1eHg4aA%3D%3D&utm_source=qr">長崎県/長崎市 スナックCANDY長崎思案橋店</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/candynagasaki_tukimachiyokocho?igsh=MXUwYmg0aGwxaXltMA%3D%3D&utm_source=qr">長崎県/長崎市 スナックCANDY長崎つきまち横丁店</a></li>
+                    <li><a target="_blank" href="od
