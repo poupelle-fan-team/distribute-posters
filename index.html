@@ -134,6 +134,11 @@
             background-color: #fff;
         }
         
+        /* 【新しいCSS】開いている状態のリストを表示するクラスを定義 */
+        .store-group.active {
+            display: block !important; /* 確実に表示されるように !important を使用 */
+        }
+
         .store-list {
             list-style: none;
             padding: 0 15px;
@@ -148,14 +153,10 @@
             line-height: 1.8;
             border-left: 3px solid #ccc;
             padding-left: 10px;
-            cursor: pointer; 
-            transition: background-color 0.1s;
+            cursor: default; /* リストクリックによるリンクは無効化 */
         }
 
-        .store-list li:hover {
-            background-color: #f0f0f0; 
-        }
-
+        /* --- レスポンシブ対応 (スマホ用) --- */
         @media (max-width: 600px) {
             .container { 
                 padding: 20px 15px; 
@@ -273,17 +274,33 @@
     </div>
 
     <script>
-        // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
-        // 🚨【TEST中】storeUrlsオブジェクトの中身を意図的に空にしました。
+        // 【TEST中】URLリストは使用しませんが、空のオブジェクトとして残します。
         const storeUrls = {};
 
-        // 各リスト項目にクリックイベントを設定する処理 (リストクリックでの遷移はできなくなります)
         document.addEventListener('DOMContentLoaded', () => {
             
-            // listItemsは定義されますが、storeUrlsが空のためリンク遷移の処理は実行されません
-            const listItems = document.querySelectorAll('.store-list li');
-            
-            // アコーディオンのヘッダー要素を取得
             const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
-            // 1.
+            // 1. 【ロジック変更】アコーディオン機能のロジック
+            // nextElementSibling ではなく、classList.toggle を使って確実に開閉させます。
+            prefectureHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const group = header.nextElementSibling;
+                    
+                    // headerの矢印を開閉
+                    header.classList.toggle('open');
+                    
+                    // group要素に 'active' クラスをトグル
+                    // CSSで .active に display: block を設定しているので、確実に開くはずです
+                    group.classList.toggle('active');
+                });
+            });
+
+
+            // 2. リストクリックによるリンク遷移のロジック (完全に削除)
+            // リストクリックでの遷移は、原因特定のため、このコードでは動きません。
+        });
+    </script>
+    
+</body>
+</html>
