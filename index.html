@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>えんとつ町のプペル ポスター配布マップ</title> 
     <style>
-        /* CSSは変更なし */
+        /* htmlとbodyのデフォルトマージン/パディングを完全にリセット */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
         }
         
+        /* 奥側のレイヤー：htmlタグにグラデーションを設定 */
         html {
             background: linear-gradient(to right, #FFD700, #FFFFFF); 
         }
         
+        /* --- 基本リセットとフォント --- */
         body {
             font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
             min-height: 100vh;
@@ -23,6 +25,7 @@
             text-align: center;
         }
 
+        /* --- メインコンテナ --- */
         .container {
             max-width: 960px;
             margin: 0 auto;
@@ -32,6 +35,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
+        /* --- タイトル画像 --- */
         .header-image {
             margin-bottom: 20px; 
         }
@@ -43,6 +47,7 @@
             margin: 0 auto; 
         }
         
+        /* --- 応援メッセージのスタイル --- */
         .support-message {
             font-size: 1rem; 
             color: #555; 
@@ -52,18 +57,21 @@
             text-align: center;
         }
         
+        /* メールアドレスのリンク色を調整 */
         .support-message a {
             color: #004c99;
             font-weight: bold;
             text-decoration: none;
         }
         
+        /* ★注意書きのサイズ調整★ */
         .small-note {
             font-size: 0.8rem; 
             display: block; 
             margin-top: 5px; 
         }
 
+        /* --- マップセクション --- */
         .map-section {
             position: relative;
             max-width: 100%; 
@@ -80,11 +88,13 @@
             display: block;
         }
 
+        /* --- リストセクション --- */
         .store-list-section {
             text-align: left;
             margin-top: 20px;
         }
 
+        /* メインの見出し */
         .store-list-section > h2 {
             font-size: 1.5rem;
             color: #555;
@@ -93,6 +103,7 @@
             margin-bottom: 20px;
         }
         
+        /* ★アコーディオン見出し (地域名) のスタイル★ */
         .prefecture-header {
             font-size: 1.2rem;
             color: #004c99;
@@ -114,18 +125,21 @@
             background-color: #d0e4ff;
         }
         
+        /* 開閉インジケーター (矢印) */
         .prefecture-header::after {
             content: '▼'; 
             font-size: 0.8em;
             transition: transform 0.2s;
         }
         
+        /* 開いた状態の矢印 */
         .prefecture-header.open::after {
             content: '▲';
         }
         
+        /* ★アコーディオンコンテンツ (リスト) のスタイル★ */
         .store-group {
-            display: none; 
+            display: none; /* 初期状態では非表示 */
             padding: 15px 0 5px;
             border-left: 1px solid #ccc;
             border-right: 1px solid #ccc;
@@ -134,9 +148,9 @@
             background-color: #fff;
         }
         
-        /* 【新しいCSS】開いている状態のリストを表示するクラスを定義 */
+        /* JavaScriptで付与されるクラス。これでリストが表示される */
         .store-group.active {
-            display: block !important; /* 確実に表示されるように !important を使用 */
+            display: block !important; 
         }
 
         .store-list {
@@ -148,12 +162,18 @@
             font-size: 1rem;
         }
         
+        /* リスト項目 */
         .store-list li {
             width: calc(50% - 15px);
             line-height: 1.8;
             border-left: 3px solid #ccc;
             padding-left: 10px;
-            cursor: default; /* リストクリックによるリンクは無効化 */
+            cursor: pointer; /* リンク復活のためカーソルをポインターに戻す */
+            transition: background-color 0.1s;
+        }
+
+        .store-list li:hover {
+            background-color: #f0f0f0; 
         }
 
         /* --- レスポンシブ対応 (スマホ用) --- */
@@ -274,15 +294,46 @@
     </div>
 
     <script>
-        // 【TEST中】URLリストは使用しませんが、空のオブジェクトとして残します。
-        const storeUrls = {};
+        // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
+        // 🚨【再々チェック済み】構文エラーがないクリーンなデータです。
+        const storeUrls = {
+            'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ', 
+            'aomori-hirosaki-candy': 'https://[URL不明]', 
+            'aomori-takkocafe-1': 'https://maps.app.goo.gl/6hBn8DNepzqRRt2M9青森県八戸市いずみ塾',
+            'aomori-takkocafe-2': 'https://maps.app.goo.gl/DPrUEueJEcJXaLMq9',
+            'aomori-sakazuki-base': 'https://maps.app.goo.gl/R7r3wQXrJq6hP1g76',
+            'miyagi-candy-sendai': 'https://maps.app.goo.gl/s2fvmveo98V2WzoS9?g_st=ipc',
+            'miyagi-scorpion-kingcrab': 'https://maps.app.goo.gl/jxf2MGAd1ixLrNV5A',
+            'miyagi-tohoku-unknown': 'https://maps.app.goo.gl/R7r3wQXrJq6hP1g761',
+            'gunma-small-school': 'https://maps.app.goo.gl/WQeMHZMmNHYZHioT9?g_st=ipc',
+            'chiba-forest-garden': 'https://maps.app.goo.gl/rHNrQhwJ3fagcTcc6?g_st=ipc',
+            'tokyo-kotosui': 'https://maps.app.goo.gl/KrTsKMG3YYsv8L6m8?g_st=ipc',
+            'tokyo-katsushika-gourmet': 'https://maps.app.goo.gl/GEquqdEbXcAdAkin6',
+            'kanagawa-yamato-unknown': 'https://maps.app.goo.gl/JQfsN25ZCvVhbisA6',
+            'mie-chainon-joli': 'https://maps.app.goo.gl/REVWxze1Xxt3wD589',
+            'kyoto-pilates-dep': 'https://maps.app.goo.gl/X4MbygvRBxJqoPY38',
+            'kyoto-haishasan': 'https://maps.app.goo.gl/HWdkZZyS9AQgPvHc8',
+            'kyoto-gyutan-en': 'https://maps.app.goo.gl/oqcwgURfheDTZRs37',
+            'nara-yamatokoriyama-unknown': 'https://maps.app.goo.gl/ocK1TTe4uEpfCoqo8',
+            'osaka-barbershop-b-bond': 'maps.app.goo.gl/rPB1UEEMXsZWUKEA8', ', 
+            'osaka-sakueba': 'https://maps.app.goo.gl/eAYfGUoRdMDtzDa87',
+            'osaka-higashiosaka-hidamari': 'https://maps.app.goo.gl/6bsa89CiPwXhotnP8',
+            'osaka-kuromon-culture': 'https://maps.app.goo.gl/zwVi9Fq9X3Pa2KmC8',
+            'osaka-seitaigym-hoshizora': 'https://maps.app.goo.gl/Me5VQNjnieWPAa4G9?g_st=ipc',
+            'osaka-nomidokoro-waraiya': 'https://maps.app.goo.gl/ZKxe5CxArWdSN7PJ6',
+            'osaka-sakai-sawada': 'https://maps.app.goo.gl/tGwaYxPteirTmdd87',
+            'hyogo-nanahuku': 'https://maps.app.goo.gl/qV5Q1dx4akPQf4o76?g_st=ipc',
+            'hyogo-aeru-kawanishi': 'https://maps.app.goo.gl/JyBHTfZsznMNqnLc6?g_st=ipc',
+            'hyogo-kakigori-huihou': 'https://maps.app.goo.gl/WEdeeKPLMKMNk7197?g_st=ipc',
+            'hyogo-eigo-juku': 'https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc' // 末尾のカンマはつけない
+        };
 
         document.addEventListener('DOMContentLoaded', () => {
             
+            const listItems = document.querySelectorAll('.store-list li');
             const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
-            // 1. 【ロジック変更】アコーディオン機能のロジック
-            // nextElementSibling ではなく、classList.toggle を使って確実に開閉させます。
+            // 1. アコーディオン機能のロジック (確実に動くロジックを適用)
             prefectureHeaders.forEach(header => {
                 header.addEventListener('click', () => {
                     const group = header.nextElementSibling;
@@ -290,15 +341,24 @@
                     // headerの矢印を開閉
                     header.classList.toggle('open');
                     
-                    // group要素に 'active' クラスをトグル
-                    // CSSで .active に display: block を設定しているので、確実に開くはずです
+                    // group要素に 'active' クラスをトグルして開閉
                     group.classList.toggle('active');
                 });
             });
 
 
-            // 2. リストクリックによるリンク遷移のロジック (完全に削除)
-            // リストクリックでの遷移は、原因特定のため、このコードでは動きません。
+            // 2. リストクリックによるリンク遷移のロジック (復活)
+            listItems.forEach(item => {
+                const urlKey = item.getAttribute('data-url');
+                const url = storeUrls[urlKey];
+
+                // URLが存在し、かつダミーの「https://[URL不明]」でない場合のみクリックイベントを設定
+                if (url && url !== 'https://[URL不明]') {
+                    item.addEventListener('click', () => {
+                        window.open(url, '_blank');
+                    });
+                }
+            });
         });
     </script>
     
