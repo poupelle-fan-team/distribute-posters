@@ -1,276 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>えんとつ町のプペル ポスター配布マップ</title> 
-    <style>
-        /* CSSは変更なし */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        
-        html {
-            background: linear-gradient(to right, #FFD700, #FFFFFF); 
-        }
-        
-        body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            min-height: 100vh;
-            color: #333;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: transparent; 
-            padding: 40px 30px; 
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-        }
-
-        .header-image {
-            margin-bottom: 20px; 
-        }
-
-        .header-image img {
-            max-width: 90%; 
-            height: auto;
-            display: block;
-            margin: 0 auto; 
-        }
-        
-        .support-message {
-            font-size: 1rem; 
-            color: #555; 
-            margin-top: -20px; 
-            margin-bottom: 20px;
-            line-height: 1.6;
-            text-align: center;
-        }
-        
-        .support-message a {
-            color: #004c99;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        
-        .small-note {
-            font-size: 0.8rem; 
-            display: block; 
-            margin-top: 5px; 
-        }
-
-        .map-section {
-            position: relative;
-            max-width: 100%; 
-            display: inline-block;
-            margin-bottom: 40px; 
-            border: 1px solid #ddd;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .map-section img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .store-list-section {
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .store-list-section > h2 {
-            font-size: 1.5rem;
-            color: #555;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .prefecture-header {
-            font-size: 1.2rem;
-            color: #004c99;
-            background-color: #e6f0ff; 
-            padding: 10px 15px;
-            margin-top: 15px;
-            margin-bottom: 0;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.2s;
-            user-select: none; 
-        }
-        
-        .prefecture-header:hover {
-            background-color: #d0e4ff;
-        }
-        
-        .prefecture-header::after {
-            content: '▼'; 
-            font-size: 0.8em;
-            transition: transform 0.2s;
-        }
-        
-        .prefecture-header.open::after {
-            content: '▲';
-        }
-        
-        .store-group {
-            display: none; 
-            padding: 15px 0 5px;
-            border-left: 1px solid #ccc;
-            border-right: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            border-radius: 0 0 4px 4px;
-            background-color: #fff;
-        }
-        
-        .store-group.active {
-            display: block !important; 
-        }
-
-        .store-list {
-            list-style: none;
-            padding: 0 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px 30px;
-            font-size: 1rem;
-        }
-        
-        .store-list li {
-            width: calc(50% - 15px);
-            line-height: 1.8;
-            border-left: 3px solid #ccc;
-            padding-left: 10px;
-            cursor: pointer; 
-            transition: background-color 0.1s;
-        }
-
-        .store-list li:hover {
-            background-color: #f0f0f0; 
-        }
-
-        @media (max-width: 600px) {
-            .container { 
-                padding: 20px 15px; 
-            }
-            
-            .support-message {
-                font-size: 1rem; 
-            }
-            .small-note {
-                font-size: 0.7rem; 
-            }
-            
-            .prefecture-header {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        
-        <div class="header-image">
-            <img src="header1.jpg" alt="えんとつ町のプペル 〜約束の時計台〜 ポスター配布マップ">
-        </div>
-
-        <div class="map-section">
-            <img src="Mix map2.jpg" alt="日本地図">
-        </div>
-        
-        <p class="support-message">
-            本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。
-            <br>
-            お問い合わせは下記までご連絡ください。
-            <br>
-            <a href="mailto:poupellefanteam@gmail.com">**poupellefanteam@gmail.com**</a>
-            <br>
-            <span class="small-note">
-                ※株式会社CHIMNEY TOWNへの<br>
-                お問合せはなさらぬようお願い申し上げます。</span>
-        </p>
-
-        <div class="store-list-section">
-            <h2>ポスター配布先店舗一覧<br>
-                2025.12.10時点 41店舗</h2>
-            
-            <h3 class="prefecture-header">【北海道・東北】</h3><div class="store-group" data-area="hokkaido-tohoku">
-                <ul class="store-list">
-                    <li data-url="hokkaido-ramen-kamon">北海道/恵庭市 ラーメン華門</li>
-                    <li data-url="aomori-hirosaki-candy">青森県/弘前市 スナックCandy</li>
-                    <li data-url="aomori-takkocafe-1">青森県/三戸郡 Takkocafe(タッコカフェ)</li>
-                    <li data-url="aomori-takkocafe-2">青森県/三戸郡 Takkocafe (本校)</li>
-                    <li data-url="aomori-sakazuki-base">青森県/三戸郡 SakaZuki BASE cominato</li>
-                    <li data-url="miyagi-candy-sendai">宮城県/仙台市 スナックCANDY仙台</li>
-                    <li data-url="miyagi-scorpion-kingcrab">宮城県/柴田町 SCORPION&KINGCRAB</li>
-                    <li data-url="miyagi-tohoku-unknown">宮城県/白石市 (店舗名不明)</li>
-                </ul>
-            </div>
-            
-            <h3 class="prefecture-header">【関東】</h3><div class="store-group" data-area="kanto">
-                <ul class="store-list">
-                    <li data-url="gunma-small-school">群馬県/高崎市 Small School MIRAI</li>
-                    <li data-url="chiba-forest-garden">千葉県/東金市 The Forest Garden KIMINOMORI</li>
-                    <li data-url="tokyo-kotosui">東京都/江東区 江戸切子専門店 煌粋</li>
-                    <li data-url="tokyo-katsushika-gourmet">東京都/葛飾区 ご当地グルメセレクション葛飾店</li>
-                    <li data-url="kanagawa-yamato-unknown">神奈川県/大和市 (店舗名不明)</li>
-                </ul>
-            </div>
-
-            <h3 class="prefecture-header">【北陸・中部】</h3><div class="store-group" data-area="hokuriku-chubu">
-                <ul class="store-list">
-                    <li data-url="mie-chainon-joli">三重県/伊勢市 chainon joli</li>
-                </ul>
-            </div>
-
-            <h3 class="prefecture-header">【関西】</h3><div class="store-group" data-area="kansai">
-                <ul class="store-list">
-                    <li data-url="kyoto-pilates-dep">京都府/京都市 ピラティススタジオ DEP 京都桂店</li>
-                    <li data-url="kyoto-haishasan">京都府/木津川市 さがなかの歯医者さん やまもと</li>
-                    <li data-url="kyoto-gyutan-en">京都府/向日市 子どもと大人と牛タンのお店 煙-en-</li>
-                    <li data-url="nara-yamatokoriyama-unknown">奈良県/大和郡山市 (店舗名不明)</li>
-                    <li data-url="osaka-barbershop-b-bond">大阪府/大阪市 Barbershop B.bond Sakura</li>
-                    <li data-url="osaka-sakueba">大阪府/大阪市 サクエバ</li>
-                    <li data-url="osaka-higashiosaka-hidamari">大阪府/東大阪市 まちの駅 ひだまり</li>
-                    <li data-url="osaka-kuromon-culture">大阪府/大阪市 黒門カルチャーファクトリー</li>
-                    <li data-url="osaka-seitaigym-hoshizora">大阪府/大阪市 整体とパーソナルジム星空</li>
-                    <li data-url="osaka-nomidokoro-waraiya">大阪府/大阪市 呑み処わらい家</li>
-                    <li data-url="osaka-sakai-sawada">大阪府/堺市 さわだ鍼灸整骨院</li>
-                    <li data-url="hyogo-nanahuku">兵庫県/神戸市 鮮魚 なな福</li>
-                    <li data-url="hyogo-aeru-kawanishi">兵庫県/川西市 aeru(アエル)川西能勢口本店</li>
-                    <li data-url="hyogo-kakigori-huihou">兵庫県/尼崎市 かき氷屋 Hui hou</li>
-                    <li data-url="hyogo-eigo-juku">兵庫県/神戸市 やりなおし英語JUKU 神戸校</li>
-                </ul>
-            </div>
-            
-            <h3 class="prefecture-header">【中国・四国】</h3><div class="store-group" data-area="chugoku-shikoku">
-                <ul class="store-list">
-                    <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
-                </ul>
-            </div>
-
-            <h3 class="prefecture-header">【九州・沖縄】</h3><div class="store-group" data-area="kyushu-okinawa">
-                <ul class="store-list">
-                    <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
-                </ul>
-            </div>
-            
-        </div>
-    </div>
-
-    <script>
+<script>
+        // アコーディオン制御は、動作が確認されているため、このまま維持
         const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
         prefectureHeaders.forEach(header => {
@@ -285,8 +14,7 @@
 
 
     <script>
-        // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
-        // データには、目に見えない不正な文字が入っていないか再度チェックしています
+        // データを初期化し、厳密にチェック
         const storeUrls = {
             'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ', 
             'aomori-hirosaki-candy': 'https://[URL不明]', 
@@ -319,21 +47,33 @@
             'hyogo-eigo-juku': 'https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc' 
         };
 
+        // DOMContentLoaded イベントで、リストアイテムの読み込みとイベント設定を行う
         document.addEventListener('DOMContentLoaded', () => {
             const listItems = document.querySelectorAll('.store-list li');
+            
+            // ログ1: リストアイテムがいくつ見つかったか確認 (例: 37)
+            console.log(`[Link Debug] Found ${listItems.length} list items.`);
 
             listItems.forEach(item => {
                 const urlKey = item.getAttribute('data-url');
                 const url = storeUrls[urlKey];
+                
+                // ログ2: 処理中のアイテムと取得したURLを確認 (例: hokkaido-ramen-kamon -> http://...)
+                console.log(`[Link Debug] Processing: ${urlKey} -> URL: ${url}`);
+
 
                 if (url && url !== 'https://[URL不明]') {
-                    item.addEventListener('click', () => {
+                    item.addEventListener('click', (event) => {
+                        // ログ3: クリックイベントが発火したか確認
+                        console.log(`[Link Debug] Clicked! Opening URL: ${url}`);
+
+                        // リンクを開く処理
                         window.open(url, '_blank');
                     });
+                } else {
+                    // ログ4: URLが見つからない、または不明なURLのアイテムを確認 (例: aomori-hirosaki-candy)
+                    console.log(`[Link Debug] No valid URL found for ${urlKey}. Skipping.`);
                 }
             });
         });
     </script>
-    
-</body>
-</html>
