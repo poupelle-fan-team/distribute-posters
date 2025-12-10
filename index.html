@@ -206,8 +206,7 @@
             <h2>ポスター配布先店舗一覧<br>
                 2025.12.10時点 41店舗</h2>
             
-            <h3 class="prefecture-header">【北海道・東北】</h3>
-            <div class="store-group" data-area="hokkaido-tohoku">
+            <h3 class="prefecture-header">【北海道・東北】</h3><div class="store-group" data-area="hokkaido-tohoku">
                 <ul class="store-list">
                     <li data-url="hokkaido-ramen-kamon">北海道/恵庭市 ラーメン華門</li>
                     <li data-url="aomori-hirosaki-candy">青森県/弘前市 スナックCandy</li>
@@ -220,8 +219,7 @@
                 </ul>
             </div>
             
-            <h3 class="prefecture-header">【関東】</h3>
-            <div class="store-group" data-area="kanto">
+            <h3 class="prefecture-header">【関東】</h3><div class="store-group" data-area="kanto">
                 <ul class="store-list">
                     <li data-url="gunma-small-school">群馬県/高崎市 Small School MIRAI</li>
                     <li data-url="chiba-forest-garden">千葉県/東金市 The Forest Garden KIMINOMORI</li>
@@ -231,15 +229,13 @@
                 </ul>
             </div>
 
-            <h3 class="prefecture-header">【北陸・中部】</h3>
-            <div class="store-group" data-area="hokuriku-chubu">
+            <h3 class="prefecture-header">【北陸・中部】</h3><div class="store-group" data-area="hokuriku-chubu">
                 <ul class="store-list">
                     <li data-url="mie-chainon-joli">三重県/伊勢市 chainon joli</li>
                 </ul>
             </div>
 
-            <h3 class="prefecture-header">【関西】</h3>
-            <div class="store-group" data-area="kansai">
+            <h3 class="prefecture-header">【関西】</h3><div class="store-group" data-area="kansai">
                 <ul class="store-list">
                     <li data-url="kyoto-pilates-dep">京都府/京都市 ピラティススタジオ DEP 京都桂店</li>
                     <li data-url="kyoto-haishasan">京都府/木津川市 さがなかの歯医者さん やまもと</li>
@@ -259,15 +255,13 @@
                 </ul>
             </div>
             
-            <h3 class="prefecture-header">【中国・四国】</h3>
-            <div class="store-group" data-area="chugoku-shikoku">
+            <h3 class="prefecture-header">【中国・四国】</h3><div class="store-group" data-area="chugoku-shikoku">
                 <ul class="store-list">
                     <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
                 </ul>
             </div>
 
-            <h3 class="prefecture-header">【九州・沖縄】</h3>
-            <div class="store-group" data-area="kyushu-okinawa">
+            <h3 class="prefecture-header">【九州・沖縄】</h3><div class="store-group" data-area="kyushu-okinawa">
                 <ul class="store-list">
                     <li style="border-left: none; cursor: default;">現在、この地域に店舗はありません。</li>
                 </ul>
@@ -280,22 +274,24 @@
         // =========================================================
         // 🚨 1. 【アコーディオン制御スクリプト】 (データに依存しない)
         // =========================================================
-        document.addEventListener('DOMContentLoaded', () => {
-            const prefectureHeaders = document.querySelectorAll('.prefecture-header');
+        // DOMContentLoaded イベントリスナーを外して、実行タイミングを最速にする
+        
+        const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
-            prefectureHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const group = header.nextElementSibling;
-                    
-                    // headerの矢印を開閉
-                    header.classList.toggle('open');
-                    
-                    // group要素に 'active' クラスをトグルして開閉
-                    group.classList.toggle('active');
-                });
+        prefectureHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                // nextElementSiblingではなく、兄弟要素のリストから次の div.store-group を探す
+                // ※ このコードでは nextElementSibling で動くはずですが、念のため。
+                const group = header.nextElementSibling;
+                
+                // headerの矢印を開閉
+                header.classList.toggle('open');
+                
+                // group要素に 'active' クラスをトグルして開閉
+                group.classList.toggle('active');
             });
         });
-
+        
         // =========================================================
         // 🚨 2. 【店舗リンク制御スクリプト】 (データに依存する)
         // =========================================================
@@ -332,6 +328,7 @@
             'hyogo-eigo-juku': 'https://maps.app.goo.gl/XbgdoBBmuNkYU8MG7?g_st=ipc' 
         };
 
+        // DOMContentLoaded イベントリスナーを再利用
         document.addEventListener('DOMContentLoaded', () => {
             const listItems = document.querySelectorAll('.store-list li');
 
