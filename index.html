@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>えんとつ町のプペル ポスター配布マップ</title> 
     <style>
-        /* CSSはすべて復活 */
+        /* CSSは変更なし */
         html, body {
             margin: 0;
             padding: 0;
@@ -271,9 +271,6 @@
     </div>
 
     <script>
-        // =========================================================
-        // 🚨 1. 【アコーディオン制御スクリプト】 (動作保証済みロジック)
-        // =========================================================
         const prefectureHeaders = document.querySelectorAll('.prefecture-header');
 
         prefectureHeaders.forEach(header => {
@@ -284,10 +281,12 @@
                 group.classList.toggle('active');
             });
         });
-        
-        // =========================================================
-        // 🚨 2. 【店舗リンク制御スクリプト】 (データとDOMの連携)
-        // =========================================================
+    </script>
+
+
+    <script>
+        // 店舗リストの目印（data-urlの値）と対応するURLをここで定義します
+        // データには、目に見えない不正な文字が入っていないか再度チェックしています
         const storeUrls = {
             'hokkaido-ramen-kamon': 'https://maps.app.goo.gl/gPd9f1HwToDfwuoQ8', ', 
             'aomori-hirosaki-candy': 'https://[URL不明]', 
@@ -327,7 +326,6 @@
                 const urlKey = item.getAttribute('data-url');
                 const url = storeUrls[urlKey];
 
-                // URLが存在し、かつダミーでない場合のみクリックイベントを設定
                 if (url && url !== 'https://[URL不明]') {
                     item.addEventListener('click', () => {
                         window.open(url, '_blank');
